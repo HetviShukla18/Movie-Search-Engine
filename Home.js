@@ -7,7 +7,7 @@ async function movieSearch() {
             return;
         }
 
-        let res = await fetch(`http://www.omdbapi.com/?t=${movie_name}&apikey=cf72acbd`);
+        let res = await fetch(`https://www.omdbapi.com/?t=${movie_name}&apikey=cf72acbd`);
         let data = await res.json();
 
         if (data.Response != 'False') {
@@ -31,7 +31,7 @@ async function showSuggestions() {
 
     if (movie_name.length > 2) {  // Only fetch if more than 2 characters
         try {
-            let res = await fetch(`http://www.omdbapi.com/?s=${movie_name}&apikey=cf72acbd`);
+            let res = await fetch(`https://www.omdbapi.com/?s=${movie_name}&apikey=cf72acbd`);
             let data = await res.json();
 
             const suggestions = document.getElementById("suggestions"); // Get suggestions container
@@ -274,10 +274,10 @@ window.addEventListener('load', () => {
                 // Set the redirect flag for the current session
                 sessionStorage.setItem('hasRedirected', 'true');
                 
-                // Redirect to index.html after 15 seconds
+                // Redirect to index.html after 10 seconds
                 setTimeout(() => {
                     window.location.href = 'register.html';
-                }, 15000);
+                }, 10000);
             } else {
                 alert('Invalid credentials. Please try again.');
             }
@@ -286,7 +286,7 @@ window.addEventListener('load', () => {
         // If the user is already logged in and hasn't been redirected in this session
         sessionStorage.setItem('hasRedirected', 'true');
         
-        // Redirect to index.html after 15 seconds
+        // Redirect to index.html after 10 seconds
         setTimeout(() => {
             window.location.href = 'register.html';
         }, 10000);
